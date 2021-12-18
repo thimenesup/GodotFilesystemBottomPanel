@@ -1,0 +1,8 @@
+.import
+*.import
+
+*.godot
+
+#Optional Resources
+*.tres
+*.png
