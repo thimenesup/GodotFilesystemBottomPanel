@@ -1,4 +1,4 @@
-tool
+@tool
 extends EditorPlugin
 
 const PluginName := "FileSystemBottomPanel"
@@ -7,12 +7,14 @@ const FirstPlaceButton := true
 
 var _file_system_node_name := "FileSystem"
 var _file_system_dock: Control = null
-var _tool_button: ToolButton = null
+var _tool_button: Button = null
 var _original_index: int = -1
 
 func _ready() -> void:
 	#Wait a frame to ensure that the editor has correctly initialized the file system to prevent crashes on boot
-	yield(get_tree(), "idle_frame")
+#	await(get_tree(), "idle_frame")ToolButton
+	await get_tree().create_timer(1).timeout
+
 	
 	_file_system_dock = find_file_system_dock_node()
 	if not _file_system_dock:
